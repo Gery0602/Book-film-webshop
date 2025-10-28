@@ -3,7 +3,7 @@
 # Csapat neve: 
 ***A Három +1 Entitás***
 # Csapat tagok:
-- Horváth Márton Bendegúz (Csatlós-2)
-- Botos Bálint (Kotor) (Csatlós-1)
 - Kiss Gergő (Császárpingvin)
+- Botos Bálint (Kotor) (Csatlós-1)
+- Horváth Márton Bendegúz (Csatlós-2)
 - Kondás Gergő (Wandering NPC)
