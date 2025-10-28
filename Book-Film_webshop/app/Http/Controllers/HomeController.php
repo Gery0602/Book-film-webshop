@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Kiemelt filmek és könyvek
+        
         $featuredMovies = Movie::where('is_featured', true)
             ->orderBy('created_at', 'desc')
             ->take(6)
@@ -21,7 +21,7 @@ class HomeController extends Controller
             ->take(6)
             ->get();
         
-        // Új megjelenések
+      
         $newMovies = Movie::orderBy('release_year', 'desc')
             ->take(8)
             ->get();
@@ -30,7 +30,7 @@ class HomeController extends Controller
             ->take(8)
             ->get();
         
-        // Legnépszerűbb termékek
+       
         $popularMovies = Movie::orderBy('rating', 'desc')
             ->take(4)
             ->get();
