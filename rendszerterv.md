@@ -10,11 +10,11 @@ tevékenységet szeretnének végezni.
 
 ### 2.1 Projektszerepkörök, felelőségek:
 
-- Scrum masters:
+- Project managger(A sarkcsillag, ki utat mutat):
 
   - Erdész Réka
 
-    Feladata: Felügyelni a projektet és megakadályozni a harmadik villágháborút.  
+    Feladata: Felügyelni a projektet és (mindenek előtt) megakadályozni a harmadik villágháborút.
     Akadályok feltárása.  
     Következő elvégzendő feladatok átbeszélése.    
     Útmutatás.
