@@ -1,3 +1,64 @@
+## 1. A rendszer célja
+
+Az oldal célja, hogy a tartalom fogyasztási igényeket kiszolgáljuk, és ennek érdekében
+átfogó szolgáltatást nyújtsunk a felhasználóknak, ahol különböző hozzáférési
+szinteken vehetnek részt. Az oldal felépítése lehetőséget biztosít arra, hogy a
+felhasználók eltérő jogosultságokkal rendelkezzenek attól függően, hogy milyen
+tevékenységet szeretnének végezni.
+
+## 2. Projektterv
+
+### 2.1 Projektszerepkörök, felelőségek:
+
+- Scrum masters:
+
+  - Erdész Réka
+
+    Feladata: Felügyelni a projektet és megakadályozni a harmadik villágháborút.  
+    Akadályok feltárása.  
+    Következő elvégzendő feladatok átbeszélése.    
+    Útmutatás.
+
+- Product owner:
+
+  - Horváth Márton Bendegúz
+  - Kiss Gergő János
+  - Botos Bálint
+  - Kondás Gergő
+
+### 2.2 Projektmunkások és felelőségek:
+
+- Frontend:
+
+  - Horváth Márton Bendegúz
+  - Kiss Gergő János
+  - Botos Bálint
+  - Kondás Gergő
+
+    Feladatuk: A felhasználók által elérhető felületek létrehozása.  
+    A backend által biztosított funkciók igénybevétele.  
+    Egységes design megalkotása.
+
+- Backend:
+
+  - Horváth Márton Bendegúz
+  - Kiss Gergő János
+  - Botos Bálint
+  - Kondás Gergő
+
+    Feladatuk: A frontend kiszolgálása adatokkal és adatok feldolgozásával.  
+    Adatbázisok létrehozása.
+
+- Tesztelés:
+
+  - Horváth Márton Bendegúz
+  - Kiss Gergő János
+  - Botos Bálint
+  - Kondás Gergő
+
+  Feladatuk: Hibák feltárása az üzembe helyezés előtt.
+
+
 ## 5. Funkcionális terv
 
 ### 5.1 Rendszerszereplők
