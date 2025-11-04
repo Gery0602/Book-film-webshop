@@ -31,10 +31,64 @@ Ezen a platformon a vásárlók személyre szabott élményt kapnának, amely fi
 Továbbá, egy decentralizált tárolási rendszer is része lenne a vágyálomnak, amely lehetővé tenné, hogy a felhasználók saját maguk tárolhassák és kezelhessék a megvásárolt tartalmakat, miközben az oldal garantálná azok biztonságos és jogszerű hozzáférhetőségét. A jövőbeli fejlesztések során az oldal képes lenne interaktív közösségi élményeket is biztosítani, ahol a felhasználók megoszthatják egymással véleményeiket, értékeléseiket és akár a tartalmakkal kapcsolatos egyedi élményeiket is.
 
 Ebben a modellben a legnagyobb előny az lenne, hogy a felhasználók nem lenne többé kiszolgáltatva a szolgáltatók időszakos döntéseinek és változásainak, hanem teljes mértékben saját kontrolljuk alatt állna a vásárolt tartalom.
+
 ## 3. Jelenlegi üzleti folyamatok modellje
+
+A MediaHub üzleti folyamatai gondosan megtervezettek, hogy maximális kényelmet és hatékonyságot 
+biztosítsanak mind a felhasználók, mind az adminisztrátorok számára. A rendszer célja, hogy egy 
+zökkenőmentes és felhasználóbarát élményt nyújtson, amely hozzájárul a sikeres film- vagy könyvbeszerzéshez.
+
+A felhasználói folyamatok kezdődnek a regisztrációval, amely lehetővé teszi a vásárlók számára, hogy 
+egyszerűen létrehozzanak egy profilt, amelyel teljeskörű hozzáférést kapnak ay oldal felhasználói felületéhez. A felhasználók 
+az alkalmazáson keresztül könnyedén böngészhetnek a különböző filmek és könyvek között, azok adatai (Cím, ár, leírás, stb), kategóriákra bontva.
+Az adminisztrátori folyamatok szintén kulcsfontosságúak a MediaHub működésében. Az adminisztrátorok 
+felelősek a platform napi működtetéséért, beleértve a filmek és könyvek folyamatos frissítését. 
 
 ### 3.1 Felhasználói folyamatok:
 
-### 3.2 Adminisztrátori folyamatok:
+A HuDora felhasználói folyamatai célzottan arra épülnek, hogy a vásárlók számára zökkenőmentes és 
+élvezetes böngésyési és vásárlási élményt nyútsanak.
+
+### 4. Alap forgatókönyv
+
+Ebben a forgatókönyvben leírjuk a rendszer működésének alapvető folyamatait, amelyek lehetővé teszik az általános felhasználói interakciókat.
+
+#### 1. Bejelentkezés:
+
+A felhasználó megnyitja a bejelentkezési oldalt és megadja a felhasználónevét és jelszavát.
+A rendszer ellenőrzi a felhasználói adatokat az adatbázisban.
+Ha a bejelentkezési adatok helyesek, a felhasználó a főoldalra kerül, ahol a szerepkörének megfelelő menüpontok jelennek meg.
+Hibás bejelentkezési adatok esetén a rendszer figyelmeztetést ad, és a felhasználó újra próbálkozhat.
+
+#### 2. Regisztráció:
+
+A felhasználó kitölti a regisztrációs űrlapot a kötelező mezők (név, email, jelszó) megadásával.
+A rendszer ellenőrzi az adatok helyességét és egyediségét (pl. email-cím).
+Sikeres regisztráció esetén a rendszer automatikusan alapértelmezett (pl. „felhasználó”) jogosultságot rendel a regisztrált felhasználónak, és átirányítja a bejelentkező oldalra.
+
+#### 3. Vásárlás (rendelés):
+
+A bejelentkezett felhasználó böngészhet az oldalon.
+Kiválaszt egy terméket, majd rákattint a „Vásárlás” gombra.
+A rendszer megjeleníti a vásárlási információkat (pl. termék ára).        
+
+#### 4. Admin felület elérése:
+
+A bejelentkezett admin felhasználó a menüben az „Admin” opcióra kattint.
+A rendszer megjeleníti az adminisztrációs felületet, ahol az adminisztrátor kezelheti a felhasználókat.
+Az adminisztrátor hozzáférhet a rendszerstatisztikákhoz és jogosultsági szintekhez is.
+
+#### 5.  Profilkezelés:
+
+A felhasználó megnyitja a profiloldalát, ahol módosíthatja az adatokat, például nevét, email-címét vagy jelszavát.
+A rendszer ellenőrzi az új adatokat, és frissíti azokat az adatbázisban.
+
+## 5. Fogalomszótár
+
+* Admin: Admin vagy másnéven adminisztrátor olyan felhasználói szerepkör, amely különleges jogosultságokkal rendelkezik a weboldal kezeléséhez és fenntartásához. 
+
+* Adatbázis: Az adatbázis olyan strukturált adatok gyűjteménye, amelyeket egy számítógépes rendszer tárol, kezel és lekérdez. Az adatbázis célja, hogy hatékonyan tárolja és hozzáférhetővé tegye a különféle információkat.
+
+* Felhasználó: A felhasználó olyan személy, aki bejelentkezik vagy böngészi az oldalt, és különböző interakciókat végezhet az elérhető funkciók alapján. A felhasználók hozzáférési szintje és jogosultságai eltérőek lehetnek attól függően, hogy regisztrált felhasználókról, vendégekről, vagy különleges jogosultsággal rendelkező szerepkörökről (pl. adminisztrátor) van szó.
 
 
