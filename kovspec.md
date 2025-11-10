@@ -8,6 +8,18 @@ A MediaHub egy olyan innovatív online könyv és film platform, amelynek célja
 
 A jelenlegi állaspont szerint az oldal nem működőképes. Megértésüket köszönjük.
 
+## 3. Vágyálomrendszer:
+   A MediaHub célja egy felhasználóbarát és biztonságos platform létrehozása, amely egyszerű digitális tartalom szolgáltatójává váljon Magyarországon. A rendszer gyors regisztrációt és bejelentkezést tesz lehetővé, hogy a     felhasználók kényelmesen felfedezhessék a különböző álmokat kínálatát. Az filmek/könyvek részletes leírásokkal érhetők el, így az ajánlatok böngészése és a rendelés leadása egyszerű és gyors. A rendelési folyamat
+   biztonságos, csak kártyás rendelés van érvényben az oldalon. A felhasználók kezelhetik fiókadataikat, míg az adminisztrátorok könnyedén frissíthetik a katalógus.
+
+## 4. Jelenlegi üzleti folyamatok modellje
+Jelenleg az szórakoztató piac több különböző platformra és helyi boltokra támaszkodik. Az alábbiakban összefoglaljuk a jellemző folyamatokat:
+
+Felhasználói folyamatok: A vásárlók különböző oldalakon keresztül adják le rendeléseiket, azonban nem mindig találnak egységes kínálatot és kategorizált katalógust. Az film nézés több lépéses folyamat, amely során a felhasználóknak külön fiókokat kell létrehozniuk az egyes platformokon. A korábbi rendelések vagy kedvencek listája nem mindig elérhető egy helyen, így a felhasználóknak nehéz nyomon követniük, hogy mely filmeket/könyveket rendelték meg korábban.
+
+Adminisztrátori folyamatok: Az adminisztrátorok különböző platformokon kezelik az katalógust és a rendelési adatokat. Az filmek/könyvek feltöltése, a katalógus frissítése és a vásárlói adatok kezelése időigényes folyamat, amely gyakran több lépcsőből áll, és be kell tartani az adatvédelmi szabályozásokat. Az adminisztrátorok feldolgozzák a beérkező rendeléseket, koordinálják a futárokat a szállítás érdekében, valamint kezelik a panaszokat és a visszatérítési igényeket.
+
+
 ## 5. Igényelt üzleti folyamatok modellje
 
 A *MediaHub* célja, hogy egy **egységes, jól strukturált webshop rendszert** biztosítson mind a felhasználók, mind az adminisztrátorok számára.
@@ -20,11 +32,13 @@ A *MediaHub* célja, hogy egy **egységes, jól strukturált webshop rendszert**
 2. **Termékkatalógus böngészése:**  
    A felhasználók kategóriák, műfajok, ár, megjelenési év, szerző/rendező alapján kereshetnek könyveket és filmeket.  
    A találatok listája szűrhető és rendezhető.
+   
 
-3. **Kosár és rendelés:**  
+
+5. **Kosár és rendelés:**  
    A kiválasztott termékek a virtuális kosárba helyezhetők, majd biztonságos online fizetéssel megvásárolhatók.
 
-5. **Értékelés és visszajelzés:**  
+6. **Értékelés és visszajelzés:**  
    A vásárlók értékelhetik a könyveket, filmeket, illetve a kiszállítás és szolgáltatás minőségét.
 
 
