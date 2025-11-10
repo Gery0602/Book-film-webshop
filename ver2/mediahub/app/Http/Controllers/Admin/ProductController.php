@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Product;
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
+{
+    public function index()
+    {
+        $products = Product::all();
+        return view('admin.products.index', compact('products'));
+    }
+
+    public function create()
+    {
+        return view('admin.products.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'category' => 'required|in:könyv,film',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'author_or_director' => 'required|max:150',
+            'description' => 'nullable',
+            'release_year' => 'required|digits:4',
+            'image_url' => 'nullable|url',
+        ]);
+
+        Product::create($validated);
+        return redirect()->route('admin.products.index')->with('success', 'Termék sikeresen hozzáadva.');
+    }
+    
+    public function edit(Product $product)
+    {
+        return view('admin.products.edit', compact('product'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'category' => 'required|in:könyv,film',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'author_or_director' => 'required|max:150',
+            'description' => 'nullable',
+            'release_year' => 'required|digits:4',
+            'image_url' => 'nullable|url',
+        ]);
+
+        $product->update($validated);
+        return redirect()->route('admin.products.index')->with('success', 'Termék sikeresen frissítve.');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('admin.products.index')->with('success', 'Termék sikeresen törölve.');
+    }
+}
