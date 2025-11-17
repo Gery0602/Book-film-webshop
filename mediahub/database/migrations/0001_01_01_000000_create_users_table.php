@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->integer('post_code')->nullable();
+            $table->string('post_code');
             $table->string('country')->nullable();
             $table->enum('role', ['admin', 'user'])->default('user');
             $table->softDeletes();

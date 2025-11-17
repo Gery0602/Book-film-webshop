@@ -40,9 +40,9 @@
 
             <!-- post-code -->
             <flux:input
-                name="post-code"
+                name="post_code"
                 :label="__('Post-code')"
-                type="number"
+                type="text"
                 required
                 autocomplete="post-code"
                 placeholder="3300"

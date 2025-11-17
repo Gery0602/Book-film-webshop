@@ -32,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
             'address' => ['string', 'max:255'],
             'city' => ['string', 'max:255'],
             'country' => ['string', 'max:255'],
-            'post-code' => ['string', 'max:4'],
+            'post_code' => ['string', 'max:4'],
 
         ])->validate();
 
@@ -44,7 +44,7 @@ class CreateNewUser implements CreatesNewUsers
             'address' => $input['address'],
             'city' => $input['city'],
             'country' => $input['country'],
-            'post-code' => $input['post-code'],
+            'post_code' => $input['post_code'],
         ]);
     }
 }
