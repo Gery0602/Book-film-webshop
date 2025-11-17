@@ -203,67 +203,8 @@ A frontend reszponzív kialakítású, **Bootstrap 5** és **Vue.js** technológ
 ---
 
 ## 8. Adatbázis terv
+<img width="841" height="755" alt="image" src="https://github.com/user-attachments/assets/ac6cb359-db4d-4892-8e46-ae9040c7bdd3" />
 
-1. **users**  
-   - `user_id`  
-   - `username`  
-   - `password`  
-   - `email`  
-   - `phone`  
-   - `address_id`  
-   - `role_id`  
-
-2. **user_addresses**  
-   - `address_id`  
-   - `street`  
-   - `city`  
-   - `zipcode`  
-   - `country`  
-
-3. **products**  
-   - `product_id`  
-   - `title`  
-   - `category` (könyv / film)  
-   - `author_or_director`  
-   - `description`  
-   - `price`  
-   - `stock`  
-   - `release_year`  
-   - `image_url`  
-
-4. **orders**  
-   - `order_id`  
-   - `user_id`  
-   - `order_date`  
-   - `status`  
-   - `total_price`  
-
-5. **order_items**  
-   - `order_item_id`  
-   - `order_id`  
-   - `product_id`  
-   - `quantity`  
-   - `subtotal_price`  
-
-6. **reviews**  
-   - `review_id`  
-   - `product_id`  
-   - `user_id`  
-   - `rating` (1–5)  
-   - `comment`  
-   - `review_date`  
-
-7. **roles**  
-   - `role_id`  
-   - `role_name` (admin / user)  
-
-**Adatkapcsolatok:**  
-- `users` → `user_addresses` (1:1)  
-- `users` → `orders` (1:N)  
-- `orders` → `order_items` (1:N)  
-- `products` → `order_items` (1:N)  
-- `products` → `reviews` (1:N)  
-- `users` → `reviews` (1:N)
 
 ---
 
