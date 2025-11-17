@@ -11,18 +11,13 @@
                             │ 🔑 id                   │
                             │    name                 │
                             │    email (unique)       │
-                            │    email_verified_at    │
                             │    password             │
                             │    phone                │
                             │    address              │
                             │    city                 │
                             │    postal_code          │
                             │    country              │
-                            │    birth_date           │
                             │    role (enum)          │
-                            │    newsletter_sub...    │
-                            │    remember_token       │
-                            │    timestamps           │
                             │    deleted_at           │
                             └─────────────────────────┘
                                     │        │
@@ -35,24 +30,23 @@
         ├─────────────────────────┤         ├─────────────────────────┤
         │ 🔑 id                   │         │ 🔑 id                   │
         │ 🔗 user_id (FK)         │         │ 🔗 user_id (FK)         │
-        │    order_number (uniq)  │         │ 🔗 product_id (FK)      │
-        │    total_amount         │         │ 🔗 order_id (FK)        │
-        │    status (enum)        │         │    download_count       │
-        │    payment_method       │         │    last_downloaded_at   │
-        │    paid_at              │         │    timestamps           │
-        │    timestamps           │         │ UNIQUE(user_id,         │
-        └─────────────────────────┘         │        product_id)      │
-                │ 1:N                       └─────────────────────────┘
-                ▼                                       │
-        ┌─────────────────────────┐                   │
+        │    total_amount         │         │ 🔗 product_id (FK)      │
+        │    payment_method (enum)│         │ 🔗 order_id (FK)        │
+        │    paid_at              │         └─────────────────────────┘
+        └─────────────────────────┘                    │
+                 │                                     │
+                 │                                     │
+                 │                                     │
+                 │ 1:N                                 │
+                 ▼                                     │
+        ┌─────────────────────────┐                    │
         │  🛒 ORDER_ITEMS         │                   │
-        │  Rendelési tételek      │                   │
-        ├─────────────────────────┤                   │
+        │  Rendelési tételek      │                    │
+        ├─────────────────────────┤                    │
         │ 🔑 id                   │                   │
         │ 🔗 order_id (FK)        │                   │
         │ 🔗 product_id (FK) ─────┼───────────────────┘
         │    price                │                   │
-        │    timestamps           │                   │
         └─────────────────────────┘                   │
                                                        ▼
                                         ┌─────────────────────────────────────┐
@@ -67,17 +61,12 @@
                                         │    price                            │
                                         │    creator                          │
                                         │    release_year                     │
-                                        │    isbn                             │
                                         │    duration                         │
                                         │    format (HD/4K)                   │
-                                        │    language                         │
                                         │    cover_image                      │
-                                        │    screenshots (json)               │
                                         │    file_path                        │
                                         │    file_size                        │
-                                        │    is_active                        │
                                         │    download_limit                   │
-                                        │    timestamps                       │
                                         │    deleted_at                       │
                                         └─────────────────────────────────────┘
                                                 │               │
@@ -85,27 +74,23 @@
                                      │ N:M                                 │ 1:N
                                      ▼                                     ▼
                 ┌─────────────────────────────┐             ┌─────────────────────────┐
-                │  🔗 PRODUCT_CATEGORY        │             │    ⭐ REVIEWS           │
+                │  🔗 PRODUCT_CATEGORY        │             │    ⭐ RATING           │
                 │  Pivot tábla                │             │    Értékelések          │
                 ├─────────────────────────────┤             ├─────────────────────────┤
                 │ 🔑 id                       │             │ 🔑 id                   │
                 │ 🔗 product_id (FK)          │             │ 🔗 user_id (FK)         │
                 │ 🔗 category_id (FK)         │             │ 🔗 product_id (FK)      │
-                │    timestamps               │             │    rating (1-5)         │
-                └─────────────────────────────┘             │    comment              │
-                            │                               │    is_approved          │
-                            │ N:1                           │    timestamps           │
-                            ▼                               │ UNIQUE(user_id,         │
-                ┌─────────────────────────┐                │        product_id)      │
-                │   🏷️ CATEGORIES         │                └─────────────────────────┘
+                └─────────────────────────────┘             │    rating (1-5)         │
+                            │                               │    UNIQUE(user_id,      │
+                            │                               │           product_id)   │
+                            │ N:1                           └─────────────────────────┘ 
+                            ▼                               
+                ┌─────────────────────────┐                 
+                │   🏷️ CATEGORIES         │                
                 │   Kategóriák            │
                 ├─────────────────────────┤
                 │ 🔑 id                   │
                 │    name                 │
-                │    slug (unique)        │
-                │    type (enum)          │
-                │    description          │
-                │    timestamps           │
                 └─────────────────────────┘
 
 
