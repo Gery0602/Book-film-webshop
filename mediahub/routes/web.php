@@ -38,12 +38,3 @@ Route::middleware(['auth'])->group(function () {
         )
         ->name('two-factor.show');
 });
-// Csak bejelentkezett felhasználók érhetik el
-Route::middleware(['auth'])->group(function () {
-    // Saját rendelések listája
-    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
-    
-    // Egy konkrét rendelés részletei
-    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
-
-});
