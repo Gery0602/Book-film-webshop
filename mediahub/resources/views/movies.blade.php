@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Index</title>
+    <title>Filmek</title>
 </head>
 
 <body>
@@ -22,28 +22,32 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="movies">Filmek</a>
+                        <a class="nav-link" href="/movies">Filmek</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Könyvek</a>
+                        <a class="nav-link" href="/books">Könyvek</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kosár</a>
+                        <a class="nav-link" href="/cart">Kosár</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
                     Köszöntelek, {{ Auth::user()->name }}
                 </span>
-                
+
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <div class="row row-cols-auto">
-
+        <div class="container text-center">
+            <h1>Filmek</h1>
+        </div>
+        
+        <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
             @foreach ($movies as $movie)
-                <div class="card " style="width: 20%;">
+            <div class="col" id="{{ $movie->id }}">
+                <div class="card" style="width: 100%;">
                     <img src="{{$movie->img}}" class="card-img-top" alt="{{$movie->title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $movie->title }}</h5>
@@ -51,16 +55,11 @@
                         <a href="" class="btn btn-primary">Kosárba</a>
                     </div>
                 </div>
+            </div>
             @endforeach
-
-
-
-
-
         </div>
     </div>
 
-    
 
 </body>
 
