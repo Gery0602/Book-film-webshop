@@ -28,6 +28,56 @@
                 placeholder="email@example.com"
             />
 
+            <!-- Phone -->
+            <flux:input
+                name="phone"
+                :label="__('Phone number')"
+                type="number"
+                required
+                autocomplete="phone"
+                placeholder="06205566560"
+            />
+
+            <!-- post-code -->
+            <flux:input
+                name="post_code"
+                :label="__('Post-code')"
+                type="text"
+                required
+                autocomplete="post-code"
+                placeholder="3300"
+            />
+
+            <!-- city -->
+            <flux:input
+                name="city"
+                :label="__('City')"
+                type="text"
+                required
+                autocomplete="city"
+                placeholder="Eger"
+            />
+
+            <!-- address -->
+            <flux:input
+                name="address"
+                :label="__('Address')"
+                type="text"
+                required
+                autocomplete="address"
+                placeholder="Jókai utca 1."
+            />
+
+            <!-- country -->
+            <flux:input
+                name="country"
+                :label="__('Country')"
+                type="text"
+                required
+                autocomplete="country"
+                placeholder="Hungary"
+            />
+
             <!-- Password -->
             <flux:input
                 name="password"
@@ -51,7 +101,7 @@
             />
 
             <div class="flex items-center justify-end">
-                <flux:button type="submit" variant="primary" class="w-full" data-test="register-user-button">
+                <flux:button type="submit" variant="primary" class="w-full" data-test="register-user-button" style=".w-full:hover{cursor:pointer;};">
                     {{ __('Create account') }}
                 </flux:button>
             </div>
