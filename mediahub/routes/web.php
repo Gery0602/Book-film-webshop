@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\OrderController;
+
 
 Route::get('/', function () {return view('welcome'); })->name('home');
 Route::get('/movies', function() { return view('movies');}) ->name('movies');
@@ -35,4 +37,13 @@ Route::middleware(['auth'])->group(function () {
             ),
         )
         ->name('two-factor.show');
+});
+// Csak bejelentkezett felhasználók érhetik el
+Route::middleware(['auth'])->group(function () {
+    // Saját rendelések listája
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    
+    // Egy konkrét rendelés részletei
+    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
 });
