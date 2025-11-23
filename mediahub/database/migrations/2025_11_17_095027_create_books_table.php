@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->text('description')->nullable();
             $table->integer('year')->nullable();
             $table->string('rating')->nullable();
+            $table->string('img')->nullable();
         });
     }
 

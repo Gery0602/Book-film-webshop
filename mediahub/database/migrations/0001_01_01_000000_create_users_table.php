@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('post_code');
             $table->string('country')->nullable();
+            $table->string('remember_token')->nullable();
             $table->enum('role', ['admin', 'user'])->default('user');
             $table->softDeletes();
             $table->timestamps();
