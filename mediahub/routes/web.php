@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\OrderController;
+
 
 
 //pages index
