@@ -7,26 +7,24 @@ use App\Models\Book;
 
 class MovieController extends Controller
 {
-            /* Movies */   
+    /* Movies */
     public function indexMovie()
     {
         $movies = Movie::all();  // get all movies from DB        
-        return view('movies', compact('movies')); 
+        return view('movies', compact('movies'));
     }
     public function indexWelcome()
     {
         $movies = Movie::all();  // get all movies from DB
         $books = Book::all();  // get all books from DB
         $all = ['movies' => $movies, 'books' => $books];
-        return view('welcome', compact('all')); 
+        return view('welcome', compact('all'));
     }
     public function indexDashboard()
     {
-         $movies = Movie::all();  // get all movies from DB
+        $movies = Movie::all();  // get all movies from DB
         $books = Book::all();  // get all books from DB
         $all = ['movies' => $movies, 'books' => $books];
-        return view('dashboard', compact('all')); 
+        return view('dashboard', compact('all'));
     }
-
-
 }

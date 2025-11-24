@@ -71,7 +71,7 @@
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title">Kosár</h5>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body stuff">
 
             </div>
             <div class="offcanvas-bottom position-fixed bottom-0 p-3">
@@ -79,6 +79,11 @@
             </div>
         </div>
     </div>
+
+
+
+
+
     <div class="container">
         <h1 class="text-center mb-4">Köszöntelek a MediaHub oldalán</h1>
     </div>
@@ -98,7 +103,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $movie->title }}</h5>
                                 <p class="card-text"> {{ $movie->year }}</p>
-                                <a href="" class="btn btn-primary">Kosárba</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -118,7 +123,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $book->title }} | {{ $book->author }} </h5>
                                 <p class="card-text"> {{ $book->year }}</p>
-                                <a href="" class="btn btn-primary">Kosárba</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -162,6 +167,14 @@
             localStorage.setItem('theme', currentTheme);
             updateIcon(currentTheme);
         });
+
+        const picks = document.querySelectorAll('.pick');
+        picks.forEach(pick=>{
+            pick.addEventListener('click', (e)=>{
+               
+            })
+        })
+
     </script>
 </body>
 

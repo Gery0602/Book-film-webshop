@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('user_libraries', function (Blueprint $table) {
             $table->id();
-            $table->id('user_id');
-            $table->id('product_id');
-            $table->id('order_id');
+            $table->integer('user_id');
+            $table->integer('product_id');
+            $table->integer('order_id');
         });
     }
 

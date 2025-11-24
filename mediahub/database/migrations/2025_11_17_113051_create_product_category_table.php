@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('product_category', function (Blueprint $table) {
             $table->id();
-            $table->id('product_id');
-            $table->id('category_id');
+            $table->integer('product_id');
+            $table->integer('category_id');
         });
     }
 

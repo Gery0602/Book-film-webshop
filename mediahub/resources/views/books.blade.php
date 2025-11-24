@@ -75,7 +75,11 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $book->title }}</h5>
                         <p class="card-text"> {{ $book->year }}</p>
-                        <a href="" class="btn btn-primary">Kosárba</a>
+                        <form method="POST" action="{{ route('cart.book') }}">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <button class="btn btn-primary pick" type="submit">Kosárba></button>
+                        </form>
                     </div>
                 </div>
             </div>

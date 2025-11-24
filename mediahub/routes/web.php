@@ -5,6 +5,8 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CartControllerMovie;
+use App\Http\Controllers\CartControllerBook;
 
 
 
@@ -17,7 +19,6 @@ Route::get('/dashboard', function () {return view('dashboard'); }) ->name('dashb
 Route::get('auth/login', function () {return view('login'); })->name('login');
 Route::get('auth/register', function () {return view('register'); })->name('register');
 
-
 //CRUD in routes for movies
 Route::get('/', [MovieController::class, 'indexWelcome'])->name('all');
 Route::get('/movies', [MovieController::class, 'indexMovie'])->name('movies');
@@ -25,6 +26,10 @@ Route::get('/dashboard', [MovieController::class, 'indexDashboard'])->name('all'
 
 //CRUD in routes for books
 Route::get('/books', [BookController::class, 'indexBook'])->name('books');
+
+//CRUD in routes for cart
+Route::post('/cart', [CartControllerMovie::class, 'store'])->name('cart.movie');
+Route::post('/cart', [CartControllerBook::class, 'store'])->name('cart.book');
 
 
 Route::middleware(['auth'])->group(function () {

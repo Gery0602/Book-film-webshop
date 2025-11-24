@@ -50,9 +50,9 @@
                         </li>
                         <li class="nav-item p-2">
                             <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button class="btn btn-outline-danger" type="submit">Kijelentkezést</button>
-                    </form>
+                                @csrf
+                                <button class="btn btn-outline-danger" type="submit">Kijelentkezést</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -62,14 +62,14 @@
     </nav>
 
     <div class="container">
-        
+
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
             <div class="offcanvas-body">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title">Kosár</h5>
                 </div>
                 <div class="offcanvas-body">
-                    
+
                 </div>
                 <div class="offcanvas-bottom position-fixed bottom-0 p-3">
                     <a class="btn btn-success" href="">Checkout</a>
@@ -83,16 +83,20 @@
 
         <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
             @foreach ($movies as $movie)
-                <div class="col" id="{{ $movie->id }}">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{$movie->img}}" class="card-img-top" alt="{{$movie->title}}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $movie->title }}</h5>
-                            <p class="card-text"> {{ $movie->year }}</p>
-                            <a href="" class="btn btn-primary">Kosárba</a>
-                        </div>
+            <div class="col" id="{{ $movie->id }}">
+                <div class="card" style="width: 100%;">
+                    <img src="{{$movie->img}}" class="card-img-top" alt="{{$movie->title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $movie->title }}</h5>
+                        <p class="card-text"> {{ $movie->year }}</p>
+                        <form method="POST" action="{{ route('cart.movie') }}">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <button class="btn btn-primary pick" type="submit">Kosárba></button>
+                        </form>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
