@@ -6,7 +6,9 @@ A MediaHub egy olyan innovatív online könyv és film platform, amelynek célja
 
 ## 2. A jelenlegi helyzet leírása
 
-A jelenlegi állaspont szerint az oldal nem működőképes. Megértésüket köszönjük.
+A MediaHub jelenleg egy sikeres digitális tartalomszolgáltató platformként működik, ahol a felhasználók különféle csatornák és médiatartalmak kínálatából válogathatnak, és azonnal hozzáférhetnek a számukra releváns anyagokhoz. Az oldal egyszerű és átlátható felületet biztosít, regisztrációs lehetőséggel a visszatérő felhasználók számára, valamint átgondolt kategória- és címkerendszerrel segíti a gyors és hatékony keresést.
+
+A MediaHub célja, hogy Magyarország vezető digitális tartalomplatformjává váljon, ahol a gyors hozzáférés, a megbízhatóság és a kiváló felhasználói élmény kiemelt szerepet kap. Innovatív megoldásaink és felhasználóbarát környezetünk biztosítja, hogy a tartalomfogyasztás egyszerű és élvezetes legyen mindenki számára. A MediaHub arra törekszik, hogy a lehető legjobb online tartalomszolgáltatást nyújtsa az országban, egyaránt figyelembe véve a felhasználók és tartalomkészítők igényeit.
 
 ## 3. Vágyálomrendszer:
    A MediaHub célja egy felhasználóbarát és biztonságos platform létrehozása, amely egyszerű digitális tartalom szolgáltatójává váljon Magyarországon. A rendszer gyors regisztrációt és bejelentkezést tesz lehetővé, hogy a     felhasználók kényelmesen felfedezhessék a különböző álmokat kínálatát. Az filmek/könyvek részletes leírásokkal érhetők el, így az ajánlatok böngészése és a rendelés leadása egyszerű és gyors. A rendelési folyamat
