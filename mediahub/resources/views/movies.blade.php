@@ -35,7 +35,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvas" role="button"
-                            aria-controls="offcanvas"><i class="icon-shopping-cart"></i></a>
+                            aria-controls="offcanvas"><i class="icon-shopping-cart"></i> {{$all['cart_count']}}</a>
                     </li>
                     <li class="nav-item">
                         <button id="themeToggle" class="nav-link ms-2">
@@ -63,42 +63,45 @@
 
     <div class="container">
 
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+        <div class="container text-center">
+            <h1>Filmek</h1>
+        </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
             <div class="offcanvas-body">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title">Kosár</h5>
                 </div>
                 <div class="offcanvas-body">
                     @foreach ($all['cart'] as $movie)
-                    <div class="col" id="{{ $movie->id }}">
+                    <div class="col p-1" id="{{ $movie->id }}">
                         <div class="card" style="width: 100%;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $movie->product_name }}</h5>
                                 <p class="card-text"> {{ $movie->product_count }}x</p>
                                 <p class="card-text"> {{ $movie->price }} Ft</p>
+                                
                             </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
                 <div class="offcanvas-bottom position-fixed bottom-0 p-3">
-                    <a class="btn btn-success" href="">Checkout</a>
+                    <a class="btn btn-success" href="{{ route('checkout') }}">Checkout</a>
                 </div>
             </div>
         </div>
 
-        <div class="container text-center">
-            <h1>Filmek</h1>
-        </div>
 
         <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
             @foreach ($all['movies'] as $movie)
             <div class="col" id="{{ $movie->id }}">
                 <div class="card" style="width: 100%;">
-                    <img src="{{$movie->img}}" class="card-img-top" alt="{{$movie->title}}">
+                    <img src="{{$movie->img}}" class="card-img-top img-fluid" alt="{{$movie->title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $movie->title }}</h5>
                         <p class="card-text"> {{ $movie->year }}</p>
+                        <p class="card-text">{{ $movie->rating }} ★</p>
 
                         <form method="POST" action="{{ route('cart.movie') }}">
                             @csrf

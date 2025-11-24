@@ -53,6 +53,10 @@ class CartControllerMovie extends Controller
     {
         //
     }
+    public function count()
+    {
+        return Cart::count();
+    }
 
     /**
      * Show the form for editing the specified resource.

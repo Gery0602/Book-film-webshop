@@ -36,7 +36,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvas" role="button"
-                            aria-controls="offcanvas"><i class="icon-shopping-cart"></i></a>
+                            aria-controls="offcanvas"><i class="icon-shopping-cart"></i> {{$all['cart_count']}}</a>
                     </li>
                     <li class="nav-item">
                         <button id="themeToggle" class="nav-link ms-2">
@@ -66,15 +66,41 @@
         <div class="container text-center">
             <h1>Könyvek</h1>
         </div>
+        
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+            <div class="offcanvas-body">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Kosár</h5>
+                </div>
+                <div class="offcanvas-body">
+                    @foreach ($all['cart'] as $book)
+                    <div class="col p-1" id="{{ $book->id }}">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $book->product_name }}</h5>
+                                <p class="card-text"> {{ $book->product_count }}x</p>
+                                <p class="card-text"> {{ $book->price }} Ft</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="offcanvas-bottom position-fixed bottom-0 p-3">
+                    <a class="btn btn-success" href="{{ route('checkout') }}">Checkout</a>
+                </div>
+            </div>
+        </div>
 
         <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
-            @foreach ($books as $book)
+            @foreach ($all['books'] as $book)
             <div class="col" id="{{ $book->id }}">
                 <div class="card" style="width: 100%;">
-                    <img src="{{$book->img}}" class="card-img-top" alt="{{$book->title}}">
+                    <img src="{{$book->img}}" class="card-img-top img-fluid" alt="{{$book->title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $book->title }}</h5>
                         <p class="card-text"> {{ $book->year }}</p>
+                        <p class="card-text">{{ $book->rating }} ★</p>
+
                         <form method="POST" action="{{ route('cart.book') }}">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $book->id }}">
@@ -84,21 +110,10 @@
                 </div>
             </div>
             @endforeach
+        
+        
         </div>
 
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-            <div class="offcanvas-body">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title">Kosár</h5>
-                </div>
-                <div class="offcanvas-body">
-
-                </div>
-                <div class="offcanvas-bottom position-fixed bottom-0 p-3">
-                    <a class="btn btn-success" href="">Checkout</a>
-                </div>
-            </div>
-        </div>
     </div>
 
 

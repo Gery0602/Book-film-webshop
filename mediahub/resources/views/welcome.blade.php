@@ -66,7 +66,7 @@
                     @foreach ($all['movies'] as $movie)
                     <div class="col" id="{{ $movie->id }}">
                         <div class="card" style="width: 100%;">
-                            <img src="{{$movie->img}}" class="card-img-top" alt="{{$movie->title}}">
+                            <img src="{{$movie->img}}" class="card-img-top img-fluid" alt="{{$movie->title}}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $movie->title }}</h5>
                                 <p class="card-text"> {{ $movie->year }}</p>
@@ -86,11 +86,10 @@
                     @foreach ($all['books'] as $book)
                     <div class="col" id="{{ $book->id }}">
                         <div class="card" style="width: 100%;">
-                            <img src="{{$book->img}}" class="card-img-top" alt="{{$book->title}}">
+                            <img src="{{$book->img}}" class="card-img-top img-fluid" alt="{{$book->title}}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $book->title }} | {{ $book->author }} </h5>
                                 <p class="card-text"> {{ $book->year }}</p>
-                               
                             </div>
                         </div>
                     </div>

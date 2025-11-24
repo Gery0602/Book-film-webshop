@@ -12,8 +12,9 @@ class MovieController extends Controller
     public function indexMovie()
     {
         $cart = Cart::all();
-        $movies = Movie::all();  // get all movies from DB        
-        $all = ['movies' => $movies, 'cart' => $cart];
+        $movies = Movie::all();     
+        $cart_count = Cart::count();   
+        $all = ['movies' => $movies, 'cart' => $cart, 'cart_count' => $cart_count];
         return view('movies', compact('all'));
     }
     public function indexWelcome()
@@ -25,9 +26,11 @@ class MovieController extends Controller
     }
     public function indexDashboard()
     {
+        $cart = Cart::all();
         $movies = Movie::all();  // get all movies from DB
         $books = Book::all();  // get all books from DB
-        $all = ['movies' => $movies, 'books' => $books];
+         $cart_count = Cart::count(); 
+        $all = ['movies' => $movies, 'books' => $books, 'cart' => $cart, 'cart_count' => $cart_count];
         return view('dashboard', compact('all'));
     }
 }
