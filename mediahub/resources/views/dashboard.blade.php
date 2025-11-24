@@ -90,7 +90,8 @@
                 <div class="container text-center">
                     <h1>Filmek</h1>
                 </div>
-                <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
+                <div class="row row-cols-lg-3 g-2 g-lg-3">
+
                     @foreach ($all['movies'] as $movie)
                     <div class="col" id="{{ $movie->id }}">
                         <div class="card" style="width: 100%;">
@@ -110,7 +111,7 @@
                 <div class="container text-center">
                     <h1>Könyvek</h1>
                 </div>
-                <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
+                <div class="row row-cols-lg-3 g-2 g-lg-3">
                     @foreach ($all['books'] as $book)
                     <div class="col" id="{{ $book->id }}">
                         <div class="card" style="width: 100%;">
