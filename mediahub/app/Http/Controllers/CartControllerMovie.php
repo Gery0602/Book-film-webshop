@@ -15,7 +15,7 @@ class CartControllerMovie extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -43,7 +43,7 @@ class CartControllerMovie extends Controller
         $item->price = $product->price;
         $item->save();
 
-        return redirect()->back()->with('success', 'Film hozzáadva a kosárhoz!');
+        return redirect()->back();
     }
 
     /**

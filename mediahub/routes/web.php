@@ -28,8 +28,12 @@ Route::get('/dashboard', [MovieController::class, 'indexDashboard'])->name('all'
 Route::get('/books', [BookController::class, 'indexBook'])->name('books');
 
 //CRUD in routes for cart
-Route::post('/cart', [CartControllerMovie::class, 'store'])->name('cart.movie');
-Route::post('/cart', [CartControllerBook::class, 'store'])->name('cart.book');
+Route::post('/movies', [CartControllerMovie::class, 'store'])->name('cart.movie');
+Route::post('/books', [CartControllerBook::class, 'store'])->name('cart.book');
+
+//cart view routes
+
+
 
 
 Route::middleware(['auth'])->group(function () {

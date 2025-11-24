@@ -69,7 +69,17 @@
                     <h5 class="offcanvas-title">Kosár</h5>
                 </div>
                 <div class="offcanvas-body">
-
+                    @foreach ($all['cart'] as $movie)
+                    <div class="col" id="{{ $movie->id }}">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $movie->product_name }}</h5>
+                                <p class="card-text"> {{ $movie->product_count }}x</p>
+                                <p class="card-text"> {{ $movie->price }} Ft</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="offcanvas-bottom position-fixed bottom-0 p-3">
                     <a class="btn btn-success" href="">Checkout</a>
@@ -82,16 +92,17 @@
         </div>
 
         <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
-            @foreach ($movies as $movie)
+            @foreach ($all['movies'] as $movie)
             <div class="col" id="{{ $movie->id }}">
                 <div class="card" style="width: 100%;">
                     <img src="{{$movie->img}}" class="card-img-top" alt="{{$movie->title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $movie->title }}</h5>
                         <p class="card-text"> {{ $movie->year }}</p>
+
                         <form method="POST" action="{{ route('cart.movie') }}">
                             @csrf
-                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="product_id" value="{{ $movie->id }}">
                             <button class="btn btn-primary pick" type="submit">Kosárba></button>
                         </form>
                     </div>

@@ -77,7 +77,7 @@
                         <p class="card-text"> {{ $book->year }}</p>
                         <form method="POST" action="{{ route('cart.book') }}">
                             @csrf
-                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="product_id" value="{{ $book->id }}">
                             <button class="btn btn-primary pick" type="submit">Kosárba></button>
                         </form>
                     </div>

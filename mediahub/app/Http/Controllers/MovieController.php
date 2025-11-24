@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use App\Models\Book;
+use App\Models\Cart;
 
 class MovieController extends Controller
 {
     /* Movies */
     public function indexMovie()
     {
+        $cart = Cart::all();
         $movies = Movie::all();  // get all movies from DB        
-        return view('movies', compact('movies'));
+        $all = ['movies' => $movies, 'cart' => $cart];
+        return view('movies', compact('all'));
     }
     public function indexWelcome()
     {
