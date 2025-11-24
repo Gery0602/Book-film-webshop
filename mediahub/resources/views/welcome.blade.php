@@ -132,4 +132,8 @@
 
 </body>
 
+<figcaption class="blockquote-footer">
+    <cite title="Source Title">Kotor itt járt 2025/11/24</cite>
+</figcaption>
+
 </html>

@@ -70,52 +70,62 @@
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
             <div class="offcanvas-body">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title">Kosár</h5>
+                    <h3 class="offcanvas-title">Kosár</h3>
                 </div>
                 <div class="offcanvas-body">
+                    <!--{{ $sum = 0 }}-->
                     @foreach ($all['cart'] as $movie)
-                    <div class="col p-1" id="{{ $movie->id }}">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $movie->product_name }}</h5>
-                                <p class="card-text"> {{ $movie->product_count }}x</p>
-                                <p class="card-text"> {{ $movie->price }} Ft</p>
-                                
+                        <div class="col p-1" id="{{ $movie->id }}">
+                            <div class="card" style="width: 100%;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $movie->product_name }}</h5>
+                                    <p class="card-text"> {{ $movie->product_count }}x</p>
+                                    <p class="card-text"> {{ $movie->price }} Ft</p>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <!--{{ $sum = $sum + $movie->price }}-->
                     @endforeach
                 </div>
-                <div class="offcanvas-bottom position-fixed bottom-0 p-3">
+                <h4>Végösszeg: {{ $sum }} Ft</h4>
+                <div class="offcanvas-bottom bottom-0 p-3">
                     <a class="btn btn-success" href="{{ route('checkout') }}">Checkout</a>
                 </div>
+                
             </div>
         </div>
 
 
         <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
             @foreach ($all['movies'] as $movie)
-            <div class="col" id="{{ $movie->id }}">
-                <div class="card" style="width: 100%;">
-                    <img src="{{$movie->img}}" class="card-img-top img-fluid" alt="{{$movie->title}}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $movie->title }}</h5>
-                        <p class="card-text"> {{ $movie->year }}</p>
-                        <p class="card-text">{{ $movie->rating }} ★</p>
+                <div class="col" id="{{ $movie->id }}">
+                    <div class="card" style="width: 100%;">
+                        <img src="{{$movie->img}}" class="card-img-top img-fluid" alt="{{$movie->title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $movie->title }}</h5>
+                            <p class="card-text"> {{ $movie->year }}</p>
+                            <p class="card-text">{{ $movie->rating }} ★</p>
+                            <div class="row">
+                                <div class="col">
+                                    <form method="POST" action="{{ route('cart.movie') }}">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $movie->id }}">
+                                        <button class="btn btn-primary pick" type="submit">Kosárba></button>
+                                    </form>
+                                </div>
+                                <div class="col text-center">
+                                    <p class="card-text"> {{ $movie->price }} Ft</p>
+                                </div>
+                            </div>
 
-                        <form method="POST" action="{{ route('cart.movie') }}">
-                            @csrf
-                            <input type="hidden" name="product_id" value="{{ $movie->id }}">
-                            <button class="btn btn-primary pick" type="submit">Kosárba></button>
-                        </form>
+
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
-
-
 
     <script>
         const themeToggle = document.getElementById('themeToggle');
@@ -148,5 +158,9 @@
     </script>
 
 </body>
+
+<figcaption class="blockquote-footer">
+    <cite title="Source Title">Kotor itt járt 2025/11/24</cite>
+</figcaption>
 
 </html>

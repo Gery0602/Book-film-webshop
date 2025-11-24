@@ -70,10 +70,10 @@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
         <div class="offcanvas-body">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title">Kosár</h5>
+                <h3 class="offcanvas-title">Kosár</h3>
             </div>
             <div class="offcanvas-body stuff">
-                
+                    <!--{{ $sum = 0 }}-->
                     @foreach ($all['cart'] as $book)
                     <div class="col p-1" id="{{ $book->id }}">
                         <div class="card" style="width: 100%;">
@@ -84,12 +84,15 @@
                             </div>
                         </div>
                     </div>
+                    <!--{{ $sum = $sum + $book->price }}-->
                     @endforeach
                 
             </div>
-            <div class="offcanvas-bottom position-fixed bottom-0 p-3">
+            <h4>Végösszeg: {{ $sum }} Ft</h3>
+            <div class="offcanvas-bottom bottom-0 p-3">
                 <a class="btn btn-success" href="{{ route('checkout') }}">Checkout</a>
             </div>
+            
         </div>
     </div>
 
@@ -112,7 +115,7 @@
                                 <h5 class="card-title">{{ $movie->title }}</h5>
                                 <p class="card-text"> {{ $movie->year }}</p>
                                 <p class="card-text">{{ $movie->rating }} ★</p>
-                                
+                                <p class="card-text"> {{ $movie->price }} Ft</p>
                             </div>
                         </div>
                     </div>
@@ -133,7 +136,7 @@
                                 <h5 class="card-title">{{ $book->title }}</h5>
                                 <p class="card-text"> {{ $book->year }}</p>
                                 <p class="card-text">{{ $book->rating }} ★</p>
-                                
+                                <p class="card-text"> {{ $book->price }} Ft</p>
                             </div>
                         </div>
                     </div>
@@ -183,5 +186,9 @@
 
     </script>
 </body>
+
+<figcaption class="blockquote-footer">
+    <cite title="Source Title">Kotor itt járt 2025/11/24</cite>
+</figcaption>
 
 </html>
