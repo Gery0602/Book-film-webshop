@@ -46,8 +46,11 @@ felelősek a platform napi működtetéséért, beleértve a filmek és könyvek
 
 ### 3.1 Felhasználói folyamatok:
 
-A HuDora felhasználói folyamatai célzottan arra épülnek, hogy a vásárlók számára zökkenőmentes és 
-élvezetes böngésyési és vásárlási élményt nyútsanak.
+A MediaHub felhasználói folyamatai célzottan arra épülnek, hogy a látogatók számára zökkenőmentes és élvezetes tartalomfogyasztási élményt nyújtsanak. A felhasználók először regisztrálnak a platformon, ahol elmenthetik adataikat, kedvenc csatornáikat, tartalmaikat és korábbi megtekintéseiket. A széles tartalomkínálat között könnyedén böngészhetnek, és a kiválasztott médiákat egyszerűen lejátszási listához adhatják. A tartalmak elindítása után a felhasználók valós időben követhetik a lejátszás állapotát, így biztosítva a folyamatos és megszakítás nélküli élményt.
+
+### 3.2 Adminisztrátori folyamatok:
+
+Az adminisztrátori folyamatok a MediaHub működésének kulcsfontosságú részét képezik, biztosítva a platform zökkenőmentes működését. Az adminisztrátorok feladatai közé tartozik a tartalmak és kategóriák folyamatos frissítése, az új partnerek integrálása, valamint a felhasználói visszajelzések kezelése. Emellett az adminisztrátorok figyelemmel kísérik a platform aktivitását, a közreműködők teljesítményét, és elemzik az adatokat, hogy folyamatosan javíthassák a szolgáltatás minőségét és a felhasználói élményt. A rendszeres jelentések és elemzések segítségével a MediaHub az üzleti folyamatokat optimalizálva biztosítja a piacon való versenyképességet.
 
 ### 4. Alap forgatókönyv
 
