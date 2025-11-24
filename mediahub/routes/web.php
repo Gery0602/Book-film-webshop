@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Laravel\Fortify\Features;
-use Livewire\Volt\Volt;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartControllerMovie;
 use App\Http\Controllers\CartControllerBook;
+use App\Http\Controllers\CheckoutController;
 
 
 
@@ -33,27 +32,11 @@ Route::post('/movies', [CartControllerMovie::class, 'store'])->name('cart.movie'
 Route::post('/books', [CartControllerBook::class, 'store'])->name('cart.book');
 
 
+//rout for checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('all');
 
 
 
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::redirect('settings', 'settings/profile');
-
-    Volt::route('settings/profile', 'settings.profile')->name('profile.edit');
-    Volt::route('settings/password', 'settings.password')->name('user-password.edit');
-    Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit');
-
-    Volt::route('settings/two-factor', 'settings.two-factor')
-        ->middleware(
-            when(
-                Features::canManageTwoFactorAuthentication()
-                && Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword'),
-                ['password.confirm'],
-                [],
-            ),
-        )
-        ->name('two-factor.show');
-});
 

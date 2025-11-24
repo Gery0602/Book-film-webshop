@@ -90,7 +90,7 @@
                 </div>
                 <h4>Végösszeg: {{ $sum }} Ft</h4>
                 <div class="offcanvas-bottom bottom-0 p-3">
-                    <a class="btn btn-success" href="{{ route('checkout') }}">Checkout</a>
+                    <a class="btn btn-success" href="/checkout">Checkout</a>
                 </div>
                 
             </div>
