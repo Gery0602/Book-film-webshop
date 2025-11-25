@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('year')->nullable();
             $table->string('rating')->nullable();
             $table->string('img')->nullable();
+            $table->integer('price')->nullable();
         });
     }
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Book;
 
 
+
 class CartControllerBook extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class CartControllerBook extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -43,7 +44,7 @@ class CartControllerBook extends Controller
         $item->price = $product->price;
         $item->save();
 
-        return redirect()->back()->with('success', 'Könyv hozzáadva a kosárhoz!');
+        return redirect()->back();
     }
 
     /**
@@ -51,7 +52,7 @@ class CartControllerBook extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**

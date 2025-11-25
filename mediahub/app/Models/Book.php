@@ -15,7 +15,8 @@ class Book extends Model
         'author',
         'year',
         'rating',
-        'img'
+        'img',
+        'price',
     ];
 
     public $timestamps = false; // add this if your table has no created_at / updated_at
