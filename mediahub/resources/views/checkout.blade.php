@@ -149,12 +149,18 @@
             </div>
                 <div class="col-sm-6">
                     <div class="text-sm-end mt-2 mt-sm-0">
-                        <a href="ecommerce-checkout.html" class="btn btn-success">
-                            <i class="mdi mdi-cart-outline me-1" ></i> Fizetés </a>
-                    </div>
-                </div> <!-- end col -->
-            </div> <!-- end row-->
-        </div>
+                      <form action="{{ route('checkout.process') }}" method="POST" style="display:inline;">
+    @csrf
+   <div class="col-sm-6">
+    <div class="text-sm-end mt-2 mt-sm-0">
+        <form action="{{ route('checkout.process') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" class="btn btn-success">
+                <i class="mdi mdi-cart-outline me-1"></i> Fizetés
+            </button>
+        </form>
+    </div>
+</div> <!-- end col -->
 
         <div class="col-xl-4">
             <div class="mt-5 mt-lg-0">

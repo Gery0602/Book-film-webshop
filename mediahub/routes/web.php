@@ -10,38 +10,29 @@ use App\Http\Controllers\CheckoutController;
 
 
 //pages index
-Route::get('/', function () {return view('welcome'); })->name('home');
-Route::get('/movies', function() { return view('movies');}) ->name('movies');
-Route::get('/books', function () {return view('books'); }) ->name('books');
-Route::get('/dashboard', function () {return view('dashboard'); }) ->name('dashboard');
-Route::get('/checkout', function () {return view('checkout'); }) ->name('checkout');
+Route::get('/', [MovieController::class, 'indexWelcome'])->name('home');
+Route::get('/movies', [MovieController::class, 'indexMovie'])->name('movies');
+Route::get('/books', [BookController::class, 'indexBook'])->name('books');
+Route::get('/dashboard', [MovieController::class, 'indexDashboard'])->name('dashboard');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
 Route::get('auth/login', function () {return view('login'); })->name('login');
 Route::get('auth/register', function () {return view('register'); })->name('register');
 
-//CRUD in routes for movies
-Route::get('/', [MovieController::class, 'indexWelcome'])->name('all');
-Route::get('/movies', [MovieController::class, 'indexMovie'])->name('movies');
-Route::get('/dashboard', [MovieController::class, 'indexDashboard'])->name('all');
-
-//CRUD in routes for books
-Route::get('/books', [BookController::class, 'indexBook'])->name('books');
 
 //CRUD in routes for cart
 Route::post('/movies', [CartControllerMovie::class, 'store'])->name('cart.movie');
 Route::post('/books', [CartControllerBook::class, 'store'])->name('cart.book');
 
 
-//rout for checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('all');
-
-
-Route::delete('/cart/book/remove/{id}', [CartControllerBook::class, 'remove']);
-Route::delete('/cart/movie/remove/{id}', [CartControllerMovie::class, 'remove']);
 Route::delete('/cart/book/remove/{id}', [CartControllerBook::class, 'remove'])->name('book.cart.remove');
+Route::delete('/cart/movie/remove/{id}', [CartControllerMovie::class, 'remove'])->name('movie.cart.remove');
 
 Route::put('/cart/update/{id}', [CartControllerBook::class, 'updateQuantity'])->name('cart.updateQuantity');
 
 
-
-
+// -------------------------
+// SZÁMLA OLDALHOZ SZÜKSÉGES ROUTE-OK
+// -------------------------
+Route::post('/checkout', [CheckoutController::class, 'handleCheckout'])->name('checkout.process');
+Route::get('/invoice/download/{orderId}', [CheckoutController::class, 'downloadInvoice'])->name('invoice.download');
