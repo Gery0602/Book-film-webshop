@@ -36,6 +36,11 @@ Route::post('/books', [CartControllerBook::class, 'store'])->name('cart.book');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('all');
 
 
+Route::delete('/cart/book/remove/{id}', [CartControllerBook::class, 'remove']);
+Route::delete('/cart/movie/remove/{id}', [CartControllerMovie::class, 'remove']);
+Route::delete('/cart/book/remove/{id}', [CartControllerBook::class, 'remove'])->name('book.cart.remove');
+
+Route::put('/cart/update/{id}', [CartControllerBook::class, 'updateQuantity'])->name('cart.updateQuantity');
 
 
 

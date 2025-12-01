@@ -63,19 +63,37 @@ class CartControllerBook extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+public function updateQuantity(Request $request, $itemId)
+{
+    // Megkeressük az adott kosár tételt az ID alapján
+    $cartItem = Cart::find($itemId);
+
+    // BIZTONSÁG: Ellenőrizd, hogy létezik-e, és hogy az aktuális felhasználóé-e
+    if ($cartItem && $cartItem->user_id == auth()->id()) { 
+        
+        // A kért mennyiséget beállítjuk az adott tételhez
+        $cartItem->product_count = (int)$request->quantity; 
+        
+        // Elmentjük a módosítást
+        $cartItem->save();
+        
+        return redirect()->back()->with('success', 'A tétel mennyisége frissítve.');
     }
+    
+    return redirect()->back()->with('error', 'Hiba történt a tétel frissítésekor.');
+}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+   public function remove($id)
+{
+    $cartItem = Cart::find($id);
+
+    if ($cartItem) {
+        $cartItem->delete();
     }
+
+    return redirect()->back()->with('success', 'Item removed from cart.');
+}
 }

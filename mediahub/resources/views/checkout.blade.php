@@ -26,7 +26,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">MediaHub</a>
+             <a class="navbar-brand" href="/dashboard">MediaHub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,7 +45,22 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+@php
+    $subtotal = 0;
+    foreach($all['cart'] as $osszeg) {
+        $subtotal += $osszeg->price * $osszeg->product_count;
+    }
 
+    $shipping = 3500; 
+    $tax = 2000;
+    
+
+    if ($subtotal >= 10000) {
+        $shipping = 0; 
+    }
+
+    $total = $subtotal + $shipping + $tax;
+@endphp
 <div class="container">
     <div class="container text-center">
         <br>
@@ -70,14 +85,13 @@
                         <div class="flex-shrink-0 ms-2">
                             <ul class="list-inline mb-0 font-size-16">
                                 <li class="list-inline-item">
-                                    <a href="#" class="text-muted px-1">
-                                        <i class="mdi mdi-trash-can-outline"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-muted px-1">
-                                        <i class="mdi mdi-heart-outline"></i>
-                                    </a>
+                                    <form action="{{ route('book.cart.remove', $cart->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-link text-muted p-0">
+                                            <i class="mdi mdi-trash-can-outline"></i>
+                                        </button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
@@ -91,7 +105,25 @@
                                     <h5 class="mb-0 mt-2"><span class="text-muted me-2"></span>{{$cart -> price}} ft</h5>
                                 </div>
                             </div>          
-                            
+                            <div class="col-md-5">
+                                <div class="mt-3">
+                                    <p class="text-muted mb-2">Mennyiség:</p>
+                                    <div class="d-inline-flex">
+                                        <form action="{{ route('cart.updateQuantity', $cart->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+
+                                            <select name="quantity" class="form-select form-select-sm w-xl" onchange="this.form.submit()">
+                                                @for ($i = 1; $i <= 10; $i++)
+                                                    <option value="{{ $i }}" {{ $cart->product_count == $i ? 'selected' : '' }}>
+                                                        {{ $i }}
+                                                    </option>
+                                                @endfor
+                                            </select>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>   
                         </div>
                     </div>
                     
@@ -101,7 +133,20 @@
         @endforeach
 
             <div class="row my-4">
-              
+               <div class="my-4 text-center">
+                    @if ($shipping == 0)
+                        <p class="text-success fw-bold p-2 border border-success rounded">
+                    🎉 A szállítás ingyenes, mert a rendelési értéked elérte a 10000 Ft-ot!
+                        </p>
+                            @else
+                            @php
+                                $remaining = 10000 - $subtotal;
+                            @endphp       
+                        <p class="p-2 border border-warning rounded" style="color: #FFC300;">
+                    📦 Rendelj még {{ number_format($remaining, 0, ',', ' ') }} Ft értékben a ingyenes szállításhoz!
+                        </p>
+                    @endif
+            </div>
                 <div class="col-sm-6">
                     <div class="text-sm-end mt-2 mt-sm-0">
                         <a href="ecommerce-checkout.html" class="btn btn-success">
@@ -110,15 +155,6 @@
                 </div> <!-- end col -->
             </div> <!-- end row-->
         </div>
-@php
-    $subtotal = 0;
-    foreach($all['cart'] as $osszeg) {
-        $subtotal += $osszeg->price;
-    }
-    $shipping = 5000;
-    $tax = 2000;
-    $total = $subtotal + $shipping + $tax;
-@endphp
 
         <div class="col-xl-4">
             <div class="mt-5 mt-lg-0">
@@ -133,13 +169,19 @@
                                 <tbody>
                                     @foreach($all['cart'] as $osszeg)
                                     <tr>
-                                        <td>Részösszeg :</td>
-                                        <td class="text-end">{{$osszeg -> price}} ft</td>
+                                         <td>{{$osszeg -> product_name}} ({{$osszeg -> product_count}}) :</td>
+                                        <td class="text-end">{{ $osszeg->price * $osszeg->product_count }} ft</td>
                                     </tr>
                                    @endforeach
                                     <tr>
                                         <td>Szállítás :</td>
-                                        <td class="text-end"> 5000 ft</td>
+                                           <td class="text-end"> 
+                                        @if ($shipping == 0)
+                                                <span class="text-success fw-bold">Ingyenes</span>
+                                            @else
+                                                {{ $shipping }} ft
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Adó : </td>
