@@ -35,4 +35,5 @@ Route::put('/cart/update/{id}', [CartControllerBook::class, 'updateQuantity'])->
 // SZÁMLA OLDALHOZ SZÜKSÉGES ROUTE-OK
 // -------------------------
 Route::post('/checkout', [CheckoutController::class, 'handleCheckout'])->name('checkout.process');
+
 Route::get('/invoice/download/{orderId}', [CheckoutController::class, 'downloadInvoice'])->name('invoice.download');

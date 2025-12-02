@@ -61,7 +61,8 @@ class CheckoutController extends Controller
         $all = ['user' => $user, 'cart' => $cart];
         
         // PDF generálás
-        $pdf = PDF::loadView('invoice', [
+        
+        $pdf = Pdf::loadView('invoice', [
             'all' => $all,
             'orderId' => $orderId,
             'isPdf' => true
