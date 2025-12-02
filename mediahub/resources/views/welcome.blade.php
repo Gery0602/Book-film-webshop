@@ -53,6 +53,7 @@
 
     <div class="container">
         <h1 class="text-center mb-4">Köszöntelek a MediaHub oldalán</h1>
+        <br>
     </div>
 
     <div class="container text-center">
@@ -61,6 +62,7 @@
             <div class="col">
                 <div class="container text-center">
                     <h1>Filmek</h1>
+                    <br>
                 </div>
                 <div class="row row-cols-lg-3 g-2 g-lg-3">
                     @foreach ($all['movies'] as $movie)
@@ -81,6 +83,7 @@
             <div class="col">
                 <div class="container text-center">
                     <h1>Könyvek</h1>
+                    <br>
                 </div>
                 <div class="row row-cols-lg-3 g-2 g-lg-3">
                     @foreach ($all['books'] as $book)
