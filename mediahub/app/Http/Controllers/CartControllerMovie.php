@@ -43,7 +43,7 @@ class CartControllerMovie extends Controller
         $item->price = $product->price;
         $item->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('cart_success', true);
     }
 
     /**

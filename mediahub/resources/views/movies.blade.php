@@ -62,7 +62,6 @@
     </nav>
 
     <div class="container">
-
         <div class="container text-center">
             <h1>Filmek</h1>
         </div>
@@ -96,6 +95,14 @@
             </div>
         </div>
 
+        <div class="toast-container position-fixed bottom-0 start-0 p-3">
+            <div id="liveToast" class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+                
+                <div class="toast-body">
+                    Sikeresen hozzáadtad a kosárhoz a filmet. 
+                </div>
+            </div>
+        </div>
 
         <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
             @foreach ($all['movies'] as $movie)
@@ -154,6 +161,23 @@
             html.setAttribute('data-bs-theme', currentTheme);
             localStorage.setItem('theme', currentTheme);
             updateIcon(currentTheme);
+        });
+
+        //toast
+
+        const toastLiveExample = document.getElementById('liveToast');
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+        
+        @if(session('cart_success'))
+            toastBootstrap.show();
+        @endif
+        
+        const pickButtons = document.querySelectorAll('.pick');
+        
+        pickButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.target.closest('form').submit();
+            });
         });
     </script>
 

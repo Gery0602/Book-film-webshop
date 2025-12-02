@@ -31,8 +31,6 @@ Route::delete('/cart/movie/remove/{id}', [CartControllerMovie::class, 'remove'])
 Route::put('/cart/update/{id}', [CartControllerBook::class, 'updateQuantity'])->name('cart.updateQuantity');
 
 
-// -------------------------
-// SZÁMLA OLDALHOZ SZÜKSÉGES ROUTE-OK
-// -------------------------
+//számla
 Route::post('/checkout', [CheckoutController::class, 'handleCheckout'])->name('checkout.process');
 Route::get('/invoice/download/{orderId}', [CheckoutController::class, 'downloadInvoice'])->name('invoice.download');

@@ -14,7 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-
     <title>MediaHub:Könyvek</title>
 </head>
 
@@ -97,6 +96,16 @@
             </div>
         </div>
 
+        <div class="toast-container position-fixed bottom-0 start-0 p-3">
+            <div id="liveToast" class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+                
+                <div class="toast-body">
+                    Sikeresen hozzáadtad a kosárhoz a könyvet.
+                </div>
+            </div>
+        </div>
+        
+
         <div class="row row-cols-auto row-cols-lg-5 g-2 g-lg-3">
             @foreach ($all['books'] as $book)
                 <div class="col" id="{{ $book->id }}">
@@ -111,7 +120,7 @@
                                     <form method="POST" action="{{ route('cart.book') }}">
                                         @csrf
                                         <input type="hidden" name="product_id" value="{{ $book->id }}">
-                                        <button class="btn btn-primary pick" type="submit">Kosárba></button>
+                                        <button class="btn btn-primary pick" type="submit" >Kosárba></button>
                                     </form>
                                 </div>
                                 <div class="col text-center">
@@ -127,7 +136,9 @@
 
         </div>
 
+
     </div>
+
 
     <script>
         const themeToggle = document.getElementById('themeToggle');
@@ -157,6 +168,25 @@
             localStorage.setItem('theme', currentTheme);
             updateIcon(currentTheme);
         });
+
+
+        //toast
+
+        const toastLiveExample = document.getElementById('liveToast');
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+        
+        @if(session('cart_success'))
+            toastBootstrap.show();
+        @endif
+        
+        const pickButtons = document.querySelectorAll('.pick');
+        
+        pickButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.target.closest('form').submit();
+            });
+        });
+
     </script>
 
 </body>
