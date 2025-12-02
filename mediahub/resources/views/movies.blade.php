@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -18,7 +19,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/dashboard">MediaHub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -28,25 +29,23 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/movies">Filmek</a>
+                        <a class="nav-link" href="/movies"><i class="bi bi-film"></i> Filmek</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/books">Könyvek</a>
+                        <a class="nav-link" href="/books"><i class="bi bi-journal-bookmark"></i> Könyvek</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvas" role="button"
-                            aria-controls="offcanvas"><i class="icon-shopping-cart"></i> {{$all['cart_count']}}</a>
+                            aria-controls="offcanvas"><i class="icon-shopping-cart"></i> {{$all['cart_count']}} Kosár</a>
                     </li>
                     <li class="nav-item">
-                        <button id="themeToggle" class="nav-link ms-2">
-                            <i class="fas fa-moon" id="themeIcon"></i>
-                        </button>
+                        <a class="nav-link" href="" id="themeToggle" role="button"><i class="fas fa-moon" id="themeIcon"></i> Téma</a>
                     </li>
                 </ul>
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                         <li class="nav-item p-2">
-                            Köszöntelek, {{ Auth::user()->name }}
+                            <a class="nav-link" href="/admin"><i class="bi bi-person-fill"></i> Felhasználó</a>
                         </li>
                         <li class="nav-item p-2">
                             <form method="POST" action="{{ route('logout') }}">
@@ -57,6 +56,7 @@
                     </ul>
                 </div>
 
+
             </div>
         </div>
     </nav>
@@ -64,6 +64,7 @@
     <div class="container">
         <div class="container text-center">
             <h1>Filmek</h1>
+            <br>
         </div>
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
@@ -131,6 +132,7 @@
                 </div>
             @endforeach
         </div>
+        
     </div>
 
     <script>

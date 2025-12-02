@@ -10,20 +10,19 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        // Bejelentkezett felhasználó lekérése
+        
         $user = Auth::user();
         
-        // Ha nincs bejelentkezve, átirányítás a login oldalra
         if (!$user) {
             return redirect()->route('login');
         }
         
-        // Cart items lekérése
         $cart = Cart::where('user_id', $user->id)->get();
         
         $all = ['user' => $user, 'cart' => $cart];
         return view('checkout', compact('all'));
     }
+
     
     public function handleCheckout()
     {
@@ -33,17 +32,16 @@ class CheckoutController extends Controller
             return redirect()->route('login');
         }
         
-        // Cart items lekérése
         $cart = Cart::where('user_id', $user->id)->get();
         
-        // Rendelés feldolgozása (itt mentheted az adatbázisba)
+        
         $orderId = rand(10000, 99999);
         
-        // TODO: Mentsd el a rendelést az adatbázisba
+        
         
         $all = ['user' => $user, 'cart' => $cart];
         
-        // Számla oldal megjelenítése böngészőben
+        
         return view('invoice', compact('all', 'orderId'));
     }
     
@@ -55,7 +53,6 @@ class CheckoutController extends Controller
             return redirect()->route('login');
         }
         
-        // Cart items lekérése (vagy az adott rendeléshez tartozó items)
         $cart = Cart::where('user_id', $user->id)->get();
         
         $all = ['user' => $user, 'cart' => $cart];

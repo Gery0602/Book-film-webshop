@@ -94,6 +94,6 @@ public function updateQuantity(Request $request, $itemId)
         $cartItem->delete();
     }
 
-    return redirect()->back()->with('success', 'Item removed from cart.');
+    return redirect()->back();
 }
 }

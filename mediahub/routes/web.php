@@ -18,6 +18,9 @@ Route::get('/books', [BookController::class, 'indexBook'])->name('books');
 Route::get('/dashboard', [MovieController::class, 'indexDashboard'])->name('dashboard');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
+
+
+Route::get('/admin', function () {return view('admin'); })->name('admin');
 Route::get('auth/login', function () {return view('login'); })->name('login');
 Route::get('auth/register', function () {return view('register'); })->name('register');
 

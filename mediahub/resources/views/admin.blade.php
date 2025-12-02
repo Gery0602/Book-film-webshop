@@ -36,10 +36,6 @@
                         <a class="nav-link" href="/books"><i class="bi bi-journal-bookmark"></i> Könyvek</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvas" role="button"
-                            aria-controls="offcanvas"><i class="icon-shopping-cart"></i> {{$all['cart_count']}} Kosár</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="" id="themeToggle" role="button"><i class="fas fa-moon" id="themeIcon"></i> Téma</a>
                     </li>
                 </ul>
@@ -63,89 +59,17 @@
     </nav>
 
     <div class="container">
-        <h1 class="text-center mb-4">Köszöntelek a MediaHub oldalán</h1>
+        <h1 class="text-center mb-4">Köszöntelek, {{ Auth::user()->name }}</h1>
+    </div>
+
+
+    <div class="container border rounded-3">
+        <h3 class="text-center">Rendelés előzmények</h3>
         <br>
-    </div>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-        <div class="offcanvas-body">
-            <div class="offcanvas-header">
-                <h3 class="offcanvas-title">Kosár</h3>
-            </div>
-            <div class="offcanvas-body stuff">
-                <!--{{ $sum = 0 }}-->
-                @foreach ($all['cart'] as $book)
-                    <div class="col p-1" id="{{ $book->id }}">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $book->product_name }}</h5>
-                                <p class="card-text"> {{ $book->product_count }}x</p>
-                                <p class="card-text"> {{ $book->price }} Ft</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--{{ $sum = $sum + $book->price }}-->
-                @endforeach
-
-            </div>
-            <h4>Végösszeg: {{ $sum }} Ft</h3>
-                <div class="offcanvas-bottom bottom-0 p-3">
-                    <a class="btn btn-success" href="/checkout">Checkout</a>
-                </div>
-
-        </div>
-    </div>
-
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col">
-                <div class="container text-center">
-                    <h1>Filmek</h1>
-                    <br>
-                </div>
-
-                <div class="row row-cols-lg-3 g-2 g-lg-3">
-
-                    @foreach ($all['movies'] as $movie)
-                        <div class="col" id="{{ $movie->id }}">
-                            <div class="card" style="width: 100%;">
-                                <img src="{{$movie->img}}" class="card-img-top img-fluid rounded" alt="{{$movie->title}}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $movie->title }}</h5>
-                                    <p class="card-text"> {{ $movie->year }}</p>
-                                    <p class="card-text">{{ $movie->rating }} ★</p>
-                                    <p class="card-text"> {{ $movie->price }} Ft</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-            </div>
-            <div class="col">
-                <div class="container text-center">
-                    <h1>Könyvek</h1>
-                    <br>
-                </div>
-                <div class="row row-cols-lg-3 g-2 g-lg-3">
-                    @foreach ($all['books'] as $book)
-                        <div class="col" id="{{ $book->id }}">
-                            <div class="card" style="width: 100%;">
-                                <img src="{{$book->img}}" class="card-img-top img-fluid rounded" alt="{{$book->title}}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $book->title }}</h5>
-                                    <p class="card-text"> {{ $book->year }}</p>
-                                    <p class="card-text">{{ $book->rating }} ★</p>
-                                    <p class="card-text"> {{ $book->price }} Ft</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, repudiandae eos similique aliquid voluptatum, ex repellendus quae facere tempore voluptatem saepe mollitia ea, nam quaerat amet iusto quia tenetur rerum!
+        </p>
+        
 
     </div>
 
@@ -189,8 +113,6 @@
     </script>
 </body>
 
-<figcaption class="blockquote-footer">
-    <cite title="Source Title">Kotor itt járt 2025/11/24</cite>
-</figcaption>
+
 
 </html>
