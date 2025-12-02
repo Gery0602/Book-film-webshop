@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediaHub: Megrendelés megerősítése</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
         body {
             font-family: sans-serif;
@@ -28,8 +28,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        @if (isset($isPdf) && $isPdf)
-        body {
+        @if (isset($isPdf) && $isPdf) body {
             background-color: white;
             min-height: auto;
             padding: 0;
@@ -41,9 +40,8 @@
             border-radius: 0;
             padding: 20px;
         }
-        @endif
 
-        h1 {
+        @endif h1 {
             color: #007bff;
             border-bottom: 2px solid #007bff;
             padding-bottom: 10px;
@@ -154,7 +152,7 @@
         @php
         $total = 0;
         foreach($all['cart'] as $osszeg) {
-            $total += $osszeg->price * $osszeg->product_count;
+        $total += $osszeg->price * $osszeg->product_count;
         }
         @endphp
 
@@ -208,7 +206,14 @@
 
         @if (!isset($isPdf) || !$isPdf)
         <div class="redirect-info">
-           <a class="btn btn-primary" href="{{ route('dashboard') }}">Vissza a főoldalra</a>
+            <form action="{{ route('cart.clear') }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button class="btn btn-primary" type="submit">
+                    Vissza a főoldalra
+                </button>
+            </form>
         </div>
         @endif
     </div>

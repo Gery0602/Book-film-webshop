@@ -74,18 +74,17 @@
                 </div>
                 <div class="offcanvas-body">
                     <!--{{ $sum = 0 }}-->
-                    @foreach ($all['cart'] as $movie)
-                        <div class="col p-1" id="{{ $movie->id }}">
+                    @foreach ($all['cart'] as $book)
+                        <div class="col p-1" id="{{ $book->id }}">
                             <div class="card" style="width: 100%;">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $movie->product_name }}</h5>
-                                    <p class="card-text"> {{ $movie->product_count }}x</p>
-                                    <p class="card-text"> {{ $movie->price }} Ft</p>
-
+                                    <h5 class="card-title">{{ $book->product_name }}</h5>
+                                    <p class="card-text"> {{ $book->product_count }}x</p>
+                                    <p class="card-text"> {{ $book->price }} Ft</p>
                                 </div>
                             </div>
                         </div>
-                        <!--{{ $sum = $sum + $movie->price }}-->
+                        <!--{{ $sum = $sum + $book->price }}-->
                     @endforeach
                 </div>
                 <h4>Végösszeg: {{ $sum }} Ft</h4>
