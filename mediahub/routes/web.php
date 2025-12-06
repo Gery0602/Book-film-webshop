@@ -7,7 +7,7 @@ use App\Http\Controllers\CartControllerMovie;
 use App\Http\Controllers\CartControllerBook;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Auth;
-
+use App\Livewire\PasswordResetNoEmail;
 
 
 
@@ -50,3 +50,9 @@ Route::delete('/cart/clear', function () {
 
     return redirect()->route('dashboard');
 })->name('cart.clear');
+
+
+Route::get('/password/no-email', \App\Livewire\PasswordResetNoEmail::class)
+    ->name('password.noemail');
+
+    

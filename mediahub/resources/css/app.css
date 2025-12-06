@@ -64,3 +64,8 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+.authentication-card-logo,
+.logo,
+.app-logo {
+    display: none !important;
+}
