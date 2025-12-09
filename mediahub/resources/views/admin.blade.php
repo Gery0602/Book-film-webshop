@@ -63,11 +63,55 @@
         <h1 class="text-center mb-4">Köszöntelek, {{ Auth::user()->name }}</h1>
     </div>
 
+    <div class="container border rounded-3">
+        <br>
+    <h3 class="text-center">Adatok</h3>
+        <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-4 fw-bold">Név:</div>
+                            <div class="col-8">{{$all['user']->name}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4 fw-bold">Email:</div>
+                            <div class="col-8">{{$all['user']->email}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4 fw-bold">Telefon:</div>
+                            <div class="col-8">{{$all['user']->phone}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4 fw-bold">Cím:</div>
+                            <div class="col-8">{{$all['user']->address}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4 fw-bold">Város:</div>
+                            <div class="col-8">{{$all['user']->city}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4 fw-bold">Irányítószám:</div>
+                            <div class="col-8">{{$all['user']->post_code}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4 fw-bold">Ország:</div>
+                            <div class="col-8">{{$all['user']->country}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
 
     <div class="container border rounded-3">
+        <br>
         <h3 class="text-center">Rendelés előzmények</h3>
         <br>
-        @foreach ($orders as $order)
+        @foreach ($all['order'] as $order)
             <div class="card mb-3">
                 <div class="card-body">
                     <div class="row">

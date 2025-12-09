@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -16,6 +17,10 @@ class OrderController extends Controller
     public function indexAdmin()
     {
         $orders =  Order::all();
-        return view('admin', compact('orders'));
+        $user = Auth::user();
+        $all=[
+            'order'=>$orders,
+            'user'=>$user];
+        return view('admin', compact('all'));
     }
 }
