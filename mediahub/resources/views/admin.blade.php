@@ -36,7 +36,8 @@
                         <a class="nav-link" href="/books"><i class="bi bi-journal-bookmark"></i> Könyvek</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" id="themeToggle" role="button"><i class="fas fa-moon" id="themeIcon"></i> Téma</a>
+                        <a class="nav-link" href="" id="themeToggle" role="button"><i class="fas fa-moon"
+                                id="themeIcon"></i> Téma</a>
                     </li>
                 </ul>
                 <div class="d-flex">
@@ -66,10 +67,24 @@
     <div class="container border rounded-3">
         <h3 class="text-center">Rendelés előzmények</h3>
         <br>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, repudiandae eos similique aliquid voluptatum, ex repellendus quae facere tempore voluptatem saepe mollitia ea, nam quaerat amet iusto quia tenetur rerum!
-        </p>
-        
+        @foreach ($orders as $order)
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>Rendelési azonosító:</strong> {{ $order->order_number }}
+                        </div>
+                        <div class="col-md-4">
+                            <strong>Fizetve:</strong> {{ $order->paid_at }}
+                        </div>
+                        <div class="col-md-4">
+                            <strong>Összeg:</strong> {{ $order->total_amount }} Ft
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
 
     </div>
 

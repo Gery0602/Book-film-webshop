@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartControllerMovie;
 use App\Http\Controllers\CartControllerBook;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -17,10 +18,9 @@ Route::get('/movies', [MovieController::class, 'indexMovie'])->name('movies');
 Route::get('/books', [BookController::class, 'indexBook'])->name('books');
 Route::get('/dashboard', [MovieController::class, 'indexDashboard'])->name('dashboard');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('/admin', [OrderController::class, 'indexAdmin'])->name('admin');
 
 
-
-Route::get('/admin', function () {return view('admin'); })->name('admin');
 Route::get('auth/login', function () {return view('login'); })->name('login');
 Route::get('auth/register', function () {return view('register'); })->name('register');
 
