@@ -5,6 +5,8 @@ use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
+
 
 class CheckoutController extends Controller
 {
@@ -40,8 +42,14 @@ class CheckoutController extends Controller
         
         
         $all = ['user' => $user, 'cart' => $cart];
-        
-        
+        DB::table('orders')->insert([
+            'user_id' => $user->id,
+            'order_number' => $orderId,
+            'total_amount' => $cart->sum('price'),
+            'payment_method' => 'credit_card',
+            'paid_at' => now(),
+        ]);
+
         return view('invoice', compact('all', 'orderId'));
     }
     
