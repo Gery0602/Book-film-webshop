@@ -47,7 +47,7 @@
                         <li class="nav-item p-2">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button class="btn btn-outline-danger" type="submit">Kijelentkezést</button>
+                                <button class="btn btn-outline-danger" type="submit">Kijelentkezés</button>
                             </form>
                         </li>
                     </ul>

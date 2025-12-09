@@ -147,7 +147,7 @@
                     <div class="text-sm-end mt-2 mt-sm-0">
                         <form action="{{ route('checkout.process') }}" method="POST" style="display:inline;">
                             @csrf
-                            <button type="submit" class="btn btn-success">
+                            <button type="submit" class="btn btn-success mt-4">
                                 <i class="mdi mdi-cart-outline me-1"></i> Fizetés
                             </button>
                         </form>

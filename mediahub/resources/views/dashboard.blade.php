@@ -51,7 +51,7 @@
                         <li class="nav-item p-2">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button class="btn btn-outline-danger" type="submit">Kijelentkezést</button>
+                                <button class="btn btn-outline-danger" type="submit">Kijelentkezés</button>
                             </form>
                         </li>
                     </ul>
@@ -90,7 +90,7 @@
             </div>
             <h4>Végösszeg: {{ $sum }} Ft</h3>
                 <div class="offcanvas-bottom bottom-0 p-3">
-                    <a class="btn btn-success" href="/checkout">Checkout</a>
+                    <a class="btn btn-success" href="/checkout">Fizetés</a>
                 </div>
 
         </div>
