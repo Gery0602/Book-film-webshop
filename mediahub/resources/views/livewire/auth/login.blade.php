@@ -50,6 +50,10 @@
             </div>
         @endif
 
+        
+        <flux:link href="#" wire:navigate="false" @click="window.location.href='/password/no-email?'" class="space-x-1 text-sm text-center rtl:space-x-reverse text-zinc-600 dark:text-zinc-400">
+            {{ __('Elfelejtetted a jelszavad?') }}
+        </flux:link>
     </div>
 </x-layouts.auth>
 
